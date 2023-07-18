@@ -18,10 +18,11 @@ import "../App.css";
 import "../styles/Main.css";
 
 import DrugTable from "./DrugTable";
-import NeoplasmTable from "./NeoplasmTable";
+
 
 
 import IndexTables from "./IndexTables";
+import NeoplasmTable from "./NeoplasmTable";
 
 
 
@@ -59,10 +60,28 @@ export const Main = ({ isValueSelected }) => {
   const [showTable, setShowTable] = useState(false);
   const [showIndx, setShowIndex] = useState(false);
   const [showDrug, setShowdrug] = useState(false);
-
+  const handleIndexClick = () => {
+    setShowIndex(!showIndx);
+    setShowTable(false);
+    setShowdrug(false);
+  };
+  const handleTableClick = () => {
+    setShowTable(!showTable);
+    setShowIndex(false);
+    setShowdrug(false);
+  };
+  const handleDrugClick = () => {
+    setShowdrug(!showDrug);
+    setShowIndex(false);
+    setShowTable(false);
+  };
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    setShowIndex(false);
+    setShowTable(false);
+    setShowdrug(false);
   };
+ 
 
   return (
     <div>
@@ -79,7 +98,7 @@ export const Main = ({ isValueSelected }) => {
           >
             {" "}
             <Button
-              onClick={() => setShowIndex(!showIndx)}
+                onClick={handleIndexClick}
               variant="contained"
               sx={{
                 textAlign: "center",
@@ -104,7 +123,7 @@ export const Main = ({ isValueSelected }) => {
               {showIndx && <IndexTables/>}
             </div>
             <Button
-              onClick={() => setShowTable(!showTable)}
+                onClick={handleTableClick}
               variant="contained"
               sx={{
                 textAlign: "center",
@@ -123,7 +142,7 @@ export const Main = ({ isValueSelected }) => {
             </Button>
             {showTable && <NeoplasmTable/>}
             <Button
-              onClick={() => setShowdrug(!showDrug)}
+               onClick={handleDrugClick}
               variant="contained"
               sx={{
                 textAlign: "center",
@@ -148,34 +167,7 @@ export const Main = ({ isValueSelected }) => {
             >
               {showDrug && <DrugTable/>}
             </div>
-            {/*  <Box
-              className="wrapper"
-              sx={{
-                height: "20px",
-                width: "100%",
-                textAlign: "left",
-                mt: "8px",
-              }}
-            >
-              <Typography
-                classname="indexSearch"
-                sx={{
-                  //backgroundColor: "#ccc6ed",
-                  backgroundColor: "#c8e2dd",
-                  color: "#4185d2",
-                  mt: "-8px",
-                }}
-                variant="subtitle1"
-                fontFamily={"sans-serif"}
-                noWrap
-                width="100%"
-              >
-                Index Search
-              </Typography>
-​
-              <Pagin />
-            </Box>
-             */}
+        
           </Box>
 
           <Box

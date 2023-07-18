@@ -18,7 +18,11 @@ td {
   font-size: small;
   font-family: "Verdana", sans-serif;
   border: none;
+
+  
 }
+
+
 .tab-head {
   margin-top: 0;
   padding-top: 6px;
@@ -102,4 +106,8 @@ td {
 }
 .page{
   height:800px;
+}
+.stylerow{
+  color:aquamarine
+
 }

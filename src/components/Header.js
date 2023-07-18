@@ -28,7 +28,7 @@ export const Header = () => {
       </Box>
       <Year />
  
-      <Search />
+      <Search/>
      
     </div>
   );
